@@ -1,9 +1,9 @@
 /* eslint-disable prettier/prettier */
 
 import { ICreateUsersDTO } from "@modules/accounts/dtos/ICreateUsersDTO"
-import { User } from "@modules/accounts/entities/User"
+import { User } from "@modules/accounts/infra/typeorm/entities/User"
 
-import { IUsersRepository } from "../../IUsersRepository"
+import { IUsersRepository } from "../IUsersRepository"
 
 class UsersRepositoryInMemory implements IUsersRepository {
     users: User[] = []
