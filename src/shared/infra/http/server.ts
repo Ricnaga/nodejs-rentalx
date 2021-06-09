@@ -2,15 +2,16 @@ import "reflect-metadata";
 import express, { NextFunction, Request, Response } from "express";
 import swaggerUi from "swagger-ui-express";
 
-import { AppError } from "@shared/errors/AppError";
 import "@shared/container";
-import { router } from "@shared/infra/http/routes";
 
 import "express-async-errors";
+import { AppError } from "@shared/errors/AppError";
+import { router } from "@shared/infra/http/routes";
+import createConnection from "@shared/infra/typeorm";
 
-import "@shared/infra/typeorm";
 import swaggerFile from "../../../swagger.json";
 
+createConnection();
 const app = express();
 const PORT = 3333;
 
