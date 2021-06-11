@@ -39,7 +39,7 @@ export class Car {
     @Column()
     brand: string;
 
-    @ManyToOne(() => Category) // por que uma categoria pode ter muitos carros
+    @ManyToOne(() => Category) // por que pode ter muitos carros para uma categoria
     @JoinColumn({ name: "category_id" })
     category: Category;
 
