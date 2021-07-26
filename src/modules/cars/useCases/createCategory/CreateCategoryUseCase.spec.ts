@@ -3,13 +3,13 @@ import { AppError } from "@shared/errors/AppError";
 
 import { CreateCategoryUseCase } from "./CreateCategoryUseCase";
 
-let createCategory: CreateCategoryUseCase;
+let createCategoryUseCase: CreateCategoryUseCase;
 let categoriesRepositoryInMemory: CategoriesRepositoryInMemory;
 
 describe("Create category", () => {
     beforeEach(() => {
         categoriesRepositoryInMemory = new CategoriesRepositoryInMemory();
-        createCategory = new CreateCategoryUseCase(
+        createCategoryUseCase = new CreateCategoryUseCase(
             categoriesRepositoryInMemory
         );
     });
@@ -20,7 +20,7 @@ describe("Create category", () => {
             description: "Category description",
         };
 
-        await createCategory.execute(category);
+        await createCategoryUseCase.execute(category);
         const categoryCreated = await categoriesRepositoryInMemory.findByName(
             category.name
         );
@@ -29,14 +29,15 @@ describe("Create category", () => {
     });
 
     it("should not be able to create the same category twice", async () => {
-        expect(async () => {
-            const category = {
-                name: "Category Test",
-                description: "Category description",
-            };
+        const category = {
+            name: "Category Test",
+            description: "Category description",
+        };
 
-            await createCategory.execute(category);
-            await createCategory.execute(category);
-        }).rejects.toBeInstanceOf(AppError);
+        await createCategoryUseCase.execute(category);
+
+        await expect(createCategoryUseCase.execute(category)).rejects.toEqual(
+            new AppError("This category already exists")
+        );
     });
 });
