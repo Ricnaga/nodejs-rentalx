@@ -26,9 +26,6 @@ class UserTokens {
     user: User;
 
     @Column()
-    email: string;
-
-    @Column()
     expires_date: Date;
 
     @CreateDateColumn()
