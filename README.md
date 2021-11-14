@@ -1,7 +1,5 @@
  <img src="https://img.shields.io/github/license/Ricnaga/nodejs-rentalx?label=License&style=for-the-badge"/>
 
-<img src="cover.jpg" alt="Capa"/>
-
 # <div align="center"> RentX </div>
 
 #### <div align="right">- Projeto Finalizado <div>
