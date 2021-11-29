@@ -29,10 +29,10 @@ Para executar a aplicação é necessário instalar algumas ferramentas tais com
 
 ```bash
 # Baixe o repositório.
-$ git clone https://github.com/Ricnaga/nodejs-rentalx.git
+$ git clone https://github.com/Ricnaga/nodejs-rentx.git
 
 # Acesse a pasta do projeto.
-$ cd nodejs-rentalx
+$ cd nodejs-rentx
 
 # Agora que baixou e acessou o repositório, vamos começar a instalação das dependências.
 $ yarn ( caso não utilize o yarn execute apenas npm -i)
